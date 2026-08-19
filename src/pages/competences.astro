@@ -1,0 +1,157 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+
+const categories = [
+  {
+    num: "01",
+    label: "Front-end",
+    skills: [
+      { name: "HTML", level: "pro" },
+      { name: "CSS", level: "pro" },
+      { name: "Tailwind CSS", level: "pro" },
+      { name: "Bootstrap", level: "pro" },
+    ],
+  },
+  {
+    num: "02",
+    label: "Frameworks",
+    skills: [
+      { name: "React", level: "pro" },
+      { name: "Next.js", level: "pro" },
+      { name: "Astro", level: "pro" },
+    ],
+  },
+  {
+    num: "03",
+    label: "Langages",
+    skills: [
+      { name: "JavaScript", level: "pro" },
+      { name: "TypeScript", level: "pro" },
+      { name: "Node.js", level: "pro" },
+    ],
+  },
+  {
+    num: "04",
+    label: "Bases de données",
+    skills: [
+      { name: "SQL", level: "pro" },
+      { name: "PostgreSQL", level: "pro" },
+      { name: "MongoDB", level: "pro" },
+    ],
+  },
+  {
+    num: "05",
+    label: "Outils & DevOps",
+    skills: [
+      { name: "GitHub", level: "pro" },
+      { name: "GitKraken", level: "pro" },
+      { name: "Docker", level: "pro" },
+    ],
+  },
+  {
+    num: "06",
+    label: "CMS & Contenu",
+    skills: [
+      { name: "WordPress", level: "pro" },
+      { name: "CMS Headless", level: "pro" },
+    ],
+  },
+  {
+    num: "07",
+    label: "En apprentissage",
+    skills: [
+      { name: "Rust", level: "learning" },
+      { name: "Golang", level: "learning" },
+      { name: "AWS", level: "learning" },
+      { name: "Azure", level: "learning" },
+      { name: "Kubernetes", level: "soon" },
+    ],
+  },
+  {
+    num: "08",
+    label: "Soft skills",
+    skills: [
+      { name: "Travail en équipe", level: "soft" },
+      { name: "Communication", level: "soft" },
+      { name: "Autodidacte", level: "soft" },
+    ],
+  },
+];
+---
+
+<Layout title="Compétences">
+  <Nav current="competences" />
+
+  <main class="flex flex-1 flex-col items-center gap-16 px-16 pb-24 pt-16">
+    <section class="reveal flex w-[720px] flex-col gap-3">
+      <h1 class="font-heading text-[44px] font-semibold text-[var(--text-primary)]">Compétences</h1>
+      <p class="font-body text-base leading-[1.5] text-[var(--text-secondary)]">
+        Technologies et outils que j'utilise au quotidien ou que j'explore activement.
+      </p>
+    </section>
+
+    <section class="reveal flex w-[720px] flex-col gap-1">
+      <div class="flex items-center gap-5 pb-6">
+        <div class="flex items-center gap-2">
+          <span class="h-[7px] w-[7px] rounded-full bg-[var(--accent)]"></span>
+          <span class="font-mono text-xs text-[var(--text-muted)]">Maîtrisé</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="h-[7px] w-[7px] rounded-full border-[1.5px] border-[var(--text-muted)] bg-[var(--bg)]"></span>
+          <span class="font-mono text-xs text-[var(--text-muted)]">En apprentissage</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="h-[7px] w-[7px] rounded-full border border-dashed border-[var(--border-strong)] bg-[var(--bg)]"></span>
+          <span class="font-mono text-xs text-[var(--text-muted)]">Plus tard</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="h-[7px] w-[7px] rounded-full bg-[var(--bg-subtle)] border border-[var(--border-strong)]"></span>
+          <span class="font-mono text-xs text-[var(--text-muted)]">Soft skill</span>
+        </div>
+      </div>
+
+      {
+        categories.map((cat, i) => (
+          <div
+            class:list={[
+              "flex items-start gap-8 py-5",
+              i !== categories.length - 1 && "border-b border-[var(--border)]",
+            ]}
+          >
+            <div class="flex w-[200px] shrink-0 items-center gap-2.5 pt-1">
+              <span class="font-mono text-[13px] font-medium text-[var(--accent)]">{cat.num}</span>
+              <span class="font-heading text-[17px] font-medium text-[var(--text-primary)]">{cat.label}</span>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              {cat.skills.map((skill) =>
+                skill.level === "pro" ? (
+                  <span class="rounded-md bg-[var(--accent)] px-3 py-[7px] font-mono text-[13px] font-medium text-[var(--on-accent)]">
+                    {skill.name}
+                  </span>
+                ) : skill.level === "learning" ? (
+                  <span class="flex items-center gap-2 rounded-md border border-[var(--border)] bg-[var(--bg-subtle)] px-3 py-[7px] font-mono text-[13px] text-[var(--text-muted)]">
+                    <span class="font-mono text-[11px]">○</span>
+                    {skill.name}
+                  </span>
+                ) : skill.level === "soon" ? (
+                  <span class="flex items-center gap-2 rounded-md border border-dashed border-[var(--border-strong)] bg-[var(--bg)] px-3 py-[7px] font-mono text-[13px] text-[var(--text-muted)]">
+                    <span class="font-mono text-[11px]">—</span>
+                    {skill.name}
+                  </span>
+                ) : (
+                  <span class="rounded-md border border-[var(--border-strong)] bg-[var(--bg-elevated)] px-3 py-[7px] font-mono text-[13px] text-[var(--text-secondary)]">
+                    {skill.name}
+                  </span>
+                )
+              )}
+            </div>
+          </div>
+        ))
+      }
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
