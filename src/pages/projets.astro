@@ -1,0 +1,164 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+
+const projects = [
+  {
+    icon: "gamepad-2",
+    badge: "Perso",
+    title: "Hangman",
+    description: "Jeu du pendu en Rust. Exercice d'apprentissage sur les bases du langage : ownership, pattern matching et gestion d'erreurs.",
+    tech: "Rust",
+    techValue: "rust",
+    contextValue: "perso",
+    githubHref: "https://github.com/qcheron",
+  },
+  {
+    icon: "thermometer",
+    badge: "Perso",
+    title: "Convertisseur de température",
+    description: "Outil en ligne de commande en Rust pour convertir entre unités de température. Projet d'apprentissage sur les fondamentaux du langage.",
+    tech: "Rust",
+    techValue: "rust",
+    contextValue: "perso",
+    githubHref: "https://github.com/qcheron",
+  },
+];
+
+const techFilters = [
+  { label: "Tous", value: "all" },
+  { label: "Rust", value: "rust" },
+];
+
+const contextFilters = [
+  { label: "Tous", value: "all" },
+  { label: "Perso", value: "perso" },
+];
+
+const chipBase =
+  "cursor-pointer rounded-lg border px-3 py-1.5 font-mono text-[13px] transition-colors duration-150";
+const chipActive = "border-[var(--accent)] bg-[var(--accent-dim)] text-[var(--accent)]";
+const chipInactive =
+  "border-[var(--border)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:border-[var(--border-strong)] hover:text-[var(--text-primary)]";
+---
+
+<Layout title="Projets">
+  <Nav current="projets" />
+
+  <main class="flex flex-col items-center gap-20 px-16 pb-24 pt-16">
+    <section class="reveal flex w-full flex-col gap-3">
+      <h1 class="font-heading text-[44px] font-semibold text-[var(--text-primary)]">Projets</h1>
+      <p class="font-body w-[720px] text-base leading-[1.5] text-[var(--text-secondary)]">
+        Une courte sélection de projets personnels, encore en construction. Du code d'apprentissage, open-source sur
+        GitHub.
+      </p>
+    </section>
+
+    <section class="reveal flex w-full flex-col gap-4">
+      <span class="font-mono text-xs text-[var(--text-muted)]">Technologie</span>
+      <div class="flex items-center gap-2" data-filter-group="tech">
+        {
+          techFilters.map((filter, i) => (
+            <button
+              type="button"
+              data-filter-value={filter.value}
+              class:list={[chipBase, i === 0 ? chipActive : chipInactive]}
+            >
+              {filter.label}
+            </button>
+          ))
+        }
+      </div>
+      <span class="font-mono text-xs text-[var(--text-muted)]">Contexte</span>
+      <div class="flex items-center gap-2" data-filter-group="context">
+        {
+          contextFilters.map((filter, i) => (
+            <button
+              type="button"
+              data-filter-value={filter.value}
+              class:list={[chipBase, i === 0 ? chipActive : chipInactive]}
+            >
+              {filter.label}
+            </button>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="reveal flex w-full flex-col gap-6">
+      <div id="projects-grid" class="flex w-full flex-wrap gap-6">
+        {projects.map((project) => <ProjectCard {...project} class="w-[400px]" />)}
+      </div>
+      <p id="projects-empty" class="hidden font-body text-sm text-[var(--text-muted)]">
+        Aucun projet ne correspond à ces filtres.
+      </p>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+  import { gsap } from "gsap";
+
+  const chipBase =
+    "cursor-pointer rounded-lg border px-3 py-1.5 font-mono text-[13px] transition-colors duration-150";
+  const chipActive = "border-[var(--accent)] bg-[var(--accent-dim)] text-[var(--accent)]";
+  const chipInactive =
+    "border-[var(--border)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:border-[var(--border-strong)] hover:text-[var(--text-primary)]";
+
+  const active: Record<string, string> = { tech: "all", context: "all" };
+  const grid = document.getElementById("projects-grid");
+  const empty = document.getElementById("projects-empty");
+  const cards = grid ? Array.from(grid.querySelectorAll<HTMLElement>(".project-card")) : [];
+
+  function applyFilters() {
+    let visibleCount = 0;
+
+    for (const card of cards) {
+      const matches =
+        (active.tech === "all" || card.dataset.tech === active.tech) &&
+        (active.context === "all" || card.dataset.context === active.context);
+
+      if (matches) {
+        visibleCount++;
+        if (card.style.display === "none") {
+          card.style.display = "flex";
+          gsap.fromTo(card, { opacity: 0, y: 12, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "power2.out" });
+        }
+      } else if (card.style.display !== "none") {
+        gsap.to(card, {
+          opacity: 0,
+          y: 12,
+          scale: 0.97,
+          duration: 0.25,
+          ease: "power1.in",
+          onComplete: () => {
+            card.style.display = "none";
+          },
+        });
+      }
+    }
+
+    empty?.classList.toggle("hidden", visibleCount > 0);
+  }
+
+  document.querySelectorAll<HTMLElement>("[data-filter-group]").forEach((group) => {
+    const groupName = group.dataset.filterGroup!;
+    const chips = Array.from(group.querySelectorAll<HTMLButtonElement>("[data-filter-value]"));
+
+    chips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        active[groupName] = chip.dataset.filterValue!;
+
+        chips.forEach((c) => {
+          c.className = `${chipBase} ${c === chip ? chipActive : chipInactive}`;
+        });
+
+        applyFilters();
+      });
+    });
+  });
+</script>

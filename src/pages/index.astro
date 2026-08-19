@@ -1,0 +1,205 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import Button from "../components/Button.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import Icon from "../components/Icon.astro";
+
+const masteredCards = [
+  {
+    icon: "app-window",
+    title: "Front-end",
+    description: "Usage quotidien en alternance, en production.",
+    tech: "TypeScript · React · Next.js",
+  },
+  {
+    icon: "server",
+    title: "Back-end",
+    description: "APIs et accès aux données côté serveur.",
+    tech: "Node.js · Prisma",
+  },
+];
+
+const learningCards = [
+  {
+    icon: "book-open",
+    badge: "En cours",
+    title: "Actuellement",
+    description: "Sur mon temps, hors production.",
+    tech: "Rust (Rustlings, Axum) · Go",
+  },
+  {
+    icon: "cloud",
+    badge: "À venir",
+    title: "À venir",
+    description: "Prochaines étapes prévues.",
+    tech: "AWS · Azure · puis Kubernetes",
+  },
+];
+
+const featuredProjects = [
+  {
+    icon: "gamepad-2",
+    badge: "Perso",
+    title: "Hangman",
+    description: "Jeu du pendu en Rust. Exercice d'apprentissage sur les bases du langage : ownership, pattern matching et gestion d'erreurs.",
+    tech: "Rust",
+    githubHref: "https://github.com/qcheron",
+  },
+  {
+    icon: "thermometer",
+    badge: "Perso",
+    title: "Convertisseur de température",
+    description: "Outil CLI en Rust pour convertir entre unités de température. Projet d'apprentissage sur les fondamentaux du langage.",
+    tech: "Rust",
+    githubHref: "https://github.com/qcheron",
+  },
+];
+---
+
+<Layout title="Accueil">
+  <Nav current="accueil" />
+
+  <main class="flex flex-col items-center gap-20 px-16 pb-24 pt-16">
+    <!-- Hero -->
+    <section class="reveal flex w-full flex-col gap-[26px]">
+      <div class="flex items-center gap-2">
+        <span class="h-2 w-2 rounded-full bg-[var(--accent)]"></span>
+        <span class="font-mono text-[13px] tracking-[0.5px] text-[var(--accent)]">EN ALTERNANCE · LYON</span>
+      </div>
+      <h1 class="font-heading max-w-[880px] text-[54px] font-medium leading-[1.1] text-[var(--text-primary)]">
+        Développeur full-stack en alternance, curieux du back-end et des systèmes.
+      </h1>
+      <p class="font-body max-w-[720px] text-lg leading-[1.6] text-[var(--text-secondary)]">
+        Quentin Chéron — en alternance à Lyon, ~7 ans de pratique (autodidacte, depuis 2018). Au quotidien, je
+        travaille en TypeScript, React et Next.js côté front, Node.js et Prisma côté back. J'apprends actuellement
+        Rust et Go, avec l'envie de me rapprocher du back-end et des systèmes.
+      </p>
+      <div class="flex items-center gap-3.5">
+        <Button href="/projets" variant="accent">Voir les projets</Button>
+        <Button href="/contact" variant="outline">Me contacter</Button>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="reveal flex w-full flex-col gap-7">
+      <div class="flex flex-col gap-2.5">
+        <span class="font-mono text-[13px] tracking-[0.5px] text-[var(--accent)]">EN CE MOMENT</span>
+        <h2 class="font-heading text-[32px] font-medium text-[var(--text-primary)]">Expérience professionnelle</h2>
+      </div>
+      <div class="flex flex-col gap-[22px] rounded-2xl border border-[var(--border)] bg-[var(--bg-elevated)] p-8">
+        <div class="flex items-center justify-between gap-4">
+          <div class="flex items-center gap-4">
+            <div class="flex h-12 w-12 items-center justify-center rounded-[10px] bg-[var(--accent-dim)]">
+              <Icon name="glasses" class="h-6 w-6 text-[var(--accent)]" />
+            </div>
+            <div class="flex flex-col gap-1">
+              <h3 class="font-heading text-[22px] font-medium text-[var(--text-primary)]">DentalSim VR</h3>
+              <span class="font-mono text-[13px] text-[var(--text-muted)]">Alternance · développement en équipe</span>
+            </div>
+          </div>
+          <span class="rounded-full border border-[var(--border-strong)] bg-[var(--bg)] px-[11px] py-[5px] font-mono text-[11px] text-[var(--text-muted)]">
+            Projet privé
+          </span>
+        </div>
+        <p class="font-body max-w-[820px] text-base leading-[1.6] text-[var(--text-secondary)]">
+          Plateforme pédagogique en réalité virtuelle (B2B) pour la formation des étudiants en dentaire. Je
+          contribue au développement full-stack au sein d'une équipe.
+        </p>
+        <div class="flex flex-col gap-2">
+          <span class="font-mono text-xs tracking-[0.5px] text-[var(--text-muted)]">STACK DU PROJET</span>
+          <p class="font-mono max-w-[900px] text-[13px] leading-[1.7] text-[var(--text-secondary)]">
+            Next.js · Prisma · BetterAuth · Stripe · AWS (SQS / Lambda / RDS) · CI/CD Azure DevOps · Coolify (VPS
+            Debian)
+          </p>
+        </div>
+        <p class="font-body text-[13px] text-[var(--text-muted)]">Code privé — pas de dépôt public ni de démo.</p>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="reveal flex w-full flex-col gap-7">
+      <div class="flex flex-col gap-2.5">
+        <span class="font-mono text-[13px] tracking-[0.5px] text-[var(--accent)]">STACK</span>
+        <h2 class="font-heading text-[32px] font-medium text-[var(--text-primary)]">Stack technique</h2>
+      </div>
+      <div class="flex flex-col gap-[34px]">
+        <div class="flex flex-col gap-4">
+          <span class="font-mono text-[13px] tracking-[0.5px] text-[var(--accent)]">MAÎTRISÉ — USAGE PRO QUOTIDIEN</span>
+          <div class="flex gap-5">
+            {
+              masteredCards.map((card) => (
+                <div class="flex flex-1 flex-col gap-3 rounded-xl border border-[var(--border)] bg-[var(--bg-elevated)] p-[22px]">
+                  <div class="flex items-center justify-between">
+                    <Icon name={card.icon} class="h-6 w-6 text-[var(--accent)]" />
+                    <span class="rounded-full bg-[var(--accent-dim)] px-[9px] py-[3px] font-mono text-[10.5px] text-[var(--accent)]">
+                      Pro
+                    </span>
+                  </div>
+                  <h4 class="font-heading text-[17px] font-medium text-[var(--text-primary)]">{card.title}</h4>
+                  <p class="font-body text-[13px] leading-[1.5] text-[var(--text-secondary)]">{card.description}</p>
+                  <p class="font-mono text-[12.5px] leading-[1.5] text-[var(--text-muted)]">{card.tech}</p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+        <div class="flex flex-col gap-4">
+          <span class="font-mono text-[13px] tracking-[0.5px] text-[var(--text-muted)]">EN APPRENTISSAGE</span>
+          <div class="flex gap-5">
+            {
+              learningCards.map((card) => (
+                <div class="flex flex-1 flex-col gap-3 rounded-xl border border-[var(--border)] bg-[var(--bg-subtle)] p-[22px]">
+                  <div class="flex items-center justify-between">
+                    <Icon name={card.icon} class="h-6 w-6 text-[var(--text-muted)]" />
+                    <span class="rounded-full border border-[var(--border-strong)] bg-[var(--bg)] px-[9px] py-[3px] font-mono text-[10.5px] text-[var(--text-muted)]">
+                      {card.badge}
+                    </span>
+                  </div>
+                  <h4 class="font-heading text-[17px] font-medium text-[var(--text-primary)]">{card.title}</h4>
+                  <p class="font-body text-[13px] leading-[1.5] text-[var(--text-secondary)]">{card.description}</p>
+                  <p class="font-mono text-[12.5px] leading-[1.5] text-[var(--text-muted)]">{card.tech}</p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured projects -->
+    <section class="reveal flex w-full flex-col gap-7">
+      <div class="flex items-end justify-between">
+        <div class="flex flex-col gap-2.5">
+          <span class="font-mono text-[13px] tracking-[0.5px] text-[var(--accent)]">PROJETS PERSONNELS</span>
+          <h2 class="font-heading text-[32px] font-medium text-[var(--text-primary)]">Projets personnels</h2>
+        </div>
+        <a
+          href="/projets"
+          class="font-mono text-[13px] text-[var(--accent)] underline-offset-2 transition-opacity hover:underline hover:opacity-80"
+        >
+          Tous les projets ↗
+        </a>
+      </div>
+      <div class="flex gap-6">
+        {featuredProjects.map((project) => <ProjectCard {...project} class="flex-1" />)}
+      </div>
+    </section>
+
+    <!-- Closing CTA -->
+    <section class="reveal flex w-full flex-col items-center gap-[18px] rounded-2xl bg-[var(--accent-dim)] px-12 py-[52px]">
+      <h2 class="font-heading text-[28px] font-medium text-[var(--text-primary)]">Envie d'échanger ?</h2>
+      <p class="font-body max-w-[540px] text-center text-base leading-[1.6] text-[var(--text-secondary)]">
+        Ouvert aux discussions autour du back-end et des systèmes, ainsi qu'aux opportunités en alternance ou en
+        poste.
+      </p>
+      <div class="flex items-center gap-3.5">
+        <Button href="/contact" variant="accent">Me contacter</Button>
+        <Button href="/projets" variant="outline-strong">Parcourir les projets</Button>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

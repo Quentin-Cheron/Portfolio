@@ -1,0 +1,76 @@
+---
+import "../styles/global.css";
+
+interface Props {
+    title: string;
+    description?: string;
+}
+
+const {
+    title,
+    description = "Quentin Chéron — développeur full-stack en alternance à Lyon.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="fr" class="h-full">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="description" content={description} />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title} · Quentin Chéron</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body class="h-full font-body">
+        <slot />
+        <script>
+            import { gsap } from "gsap";
+            import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+            gsap.registerPlugin(ScrollTrigger);
+
+            document.querySelectorAll("nav a, footer a").forEach((el) => {
+                el.addEventListener("mouseenter", () => {
+                    gsap.to(el, { y: -1, duration: 0.2, ease: "power1.out" });
+                });
+                el.addEventListener("mouseleave", () => {
+                    gsap.to(el, { y: 0, duration: 0.2, ease: "power1.out" });
+                });
+            });
+
+            const sections = gsap.utils.toArray<HTMLElement>(".reveal");
+            const firstSection = sections.shift();
+
+            if (firstSection) {
+                gsap.from(firstSection.children, {
+                    opacity: 0,
+                    y: 24,
+                    duration: 0.7,
+                    stagger: 0.08,
+                    ease: "power2.out",
+                });
+            }
+
+            sections.forEach((section) => {
+                gsap.from(section, {
+                    opacity: 0,
+                    y: 32,
+                    duration: 0.7,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "top 85%",
+                        once: true,
+                    },
+                });
+            });
+        </script>
+    </body>
+</html>

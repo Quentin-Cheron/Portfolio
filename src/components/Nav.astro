@@ -1,0 +1,42 @@
+---
+interface Props {
+  current: "accueil" | "a-propos" | "projets" | "contact";
+}
+
+const { current } = Astro.props;
+
+const links = [
+  { id: "accueil", label: "Accueil", href: "/" },
+  { id: "a-propos", label: "À propos", href: "/a-propos" },
+  { id: "projets", label: "Projets", href: "/projets" },
+  { id: "contact", label: "Contact", href: "/contact" },
+] as const;
+---
+
+<nav
+  class="sticky top-0 z-50 flex items-center justify-between px-16 py-[18px] bg-[var(--bg)] border-b border-[var(--border)]"
+>
+  <a href="/" class="flex items-center gap-3">
+    <span
+      class="flex h-[34px] w-[34px] items-center justify-center rounded-lg border border-[var(--accent)] bg-[var(--accent-dim)] font-mono text-[13px] font-medium text-[var(--accent)]"
+    >
+      QC
+    </span>
+    <span class="font-heading text-base font-medium text-[var(--text-primary)]">Quentin Chéron</span>
+  </a>
+  <div class="flex items-center gap-9">
+    {
+      links.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            "font-body text-sm",
+            current === link.id ? "text-[var(--text-primary)]" : "text-[var(--text-secondary)]",
+          ]}
+        >
+          {link.label}
+        </a>
+      ))
+    }
+  </div>
+</nav>

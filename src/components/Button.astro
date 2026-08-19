@@ -1,0 +1,35 @@
+---
+import Icon from "./Icon.astro";
+
+interface Props {
+  href: string;
+  variant?: "accent" | "outline" | "outline-strong";
+  icon?: string;
+  target?: string;
+  class?: string;
+}
+
+const { href, variant = "accent", icon, target, class: className = "" } = Astro.props;
+
+const variants = {
+  accent: "bg-[var(--accent)] text-[var(--on-accent)] hover:brightness-110",
+  outline: "bg-[var(--bg-elevated)] border border-[var(--border)] text-[var(--text-primary)] hover:bg-[var(--bg-subtle)] hover:border-[var(--border-strong)]",
+  "outline-strong": "bg-[var(--bg)] border border-[var(--border-strong)] text-[var(--text-primary)] hover:bg-[var(--bg-subtle)]",
+};
+---
+
+<a
+  href={href}
+  target={target}
+  rel={target === "_blank" ? "noreferrer" : undefined}
+  class:list={[
+    "group inline-flex items-center justify-center gap-2 rounded-lg px-[22px] py-[13px] font-body text-sm font-medium",
+    "cursor-pointer transition-[transform,filter,background-color,border-color] duration-150 ease-out",
+    "hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.97]",
+    variants[variant],
+    className,
+  ]}
+>
+  <slot />
+  {icon && <Icon name={icon} class="h-4 w-4 transition-transform duration-150 group-hover:translate-x-0.5" />}
+</a>

@@ -1,0 +1,263 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import Button from "../components/Button.astro";
+
+const milestones = [
+  {
+    year: "~2018",
+    title: "Premiers pas côté front",
+    description:
+      "Je découvre le développement web en autodidacte : HTML, CSS et JavaScript, appris sur le tas en construisant de petites pages et en cassant beaucoup de choses.",
+  },
+  {
+    year: "2020",
+    title: "Des bases plus structurées",
+    description:
+      "Je reprends les fondamentaux de façon plus posée : logique de programmation, versioning avec Git, un peu de réseau. Je cherche surtout à comprendre ce que j'écris.",
+  },
+  {
+    year: "2022",
+    title: "Vers le full-stack",
+    description:
+      "Je ne me limite plus à l'interface. Je m'intéresse aux APIs, aux bases de données et au déploiement, et je commence à raisonner en termes d'application complète.",
+  },
+  {
+    year: "2024",
+    title: "Alternance à Lyon",
+    description:
+      "Je rejoins une équipe en alternance et je travaille au quotidien sur un vrai produit, avec de la revue de code et le suivi de l'existant dans la durée.",
+  },
+  {
+    year: "2025",
+    title: "Intérêt pour le back-end",
+    description:
+      "Je concentre progressivement mon apprentissage sur le back-end et les systèmes, et j'explore de nouveaux langages en dehors du travail.",
+  },
+];
+
+const focusPoints = [
+  {
+    num: "01",
+    title: "Back-end & APIs",
+    description: "Concevoir des services fiables et lisibles. J'apprends encore beaucoup sur ce terrain, en partant de ce que je pratique déjà en Node.js.",
+  },
+  {
+    num: "02",
+    title: "Concurrence & systèmes",
+    description: "Comprendre le parallélisme et le fonctionnement interne des outils. Un sujet que j'explore, pas un acquis.",
+  },
+  {
+    num: "03",
+    title: "Bases de données",
+    description: "Mieux modéliser et écrire des requêtes plus efficaces, en m'appuyant sur ce que je manipule au quotidien.",
+  },
+  {
+    num: "04",
+    title: "Rust & Go",
+    description: "Apprentissage en cours de Rust (Rustlings, Axum) et de Go, en dehors du travail, pour découvrir des langages plus proches de la machine.",
+  },
+  {
+    num: "05",
+    title: "Cloud & infra",
+    description: "Montée en compétence prévue sur le cloud (AWS, Azure), puis plus tard Kubernetes. Un objectif, pas encore une compétence.",
+  },
+];
+
+const interests = ["Électronique / DIY", "Cyclisme", "Lecture technique"];
+---
+
+<Layout title="À propos">
+  <Nav current="a-propos" />
+
+  <main class="flex flex-col items-center gap-20 px-16 pb-24 pt-16">
+    <!-- Header -->
+    <section class="reveal flex w-[720px] flex-col gap-5">
+      <span class="w-fit rounded-md bg-[var(--accent-dim)] px-3 py-1.5 font-mono text-[13px] font-medium text-[var(--accent)]">
+        // À propos
+      </span>
+      <h1 class="font-heading w-full text-[44px] font-semibold leading-[1.1] text-[var(--text-primary)]">
+        Développeur full-stack, en route vers le back-end.
+      </h1>
+      <p class="font-body w-full text-lg leading-[1.6] text-[var(--text-secondary)]">
+        Je m'appelle Quentin Chéron. Je suis développeur full-stack en alternance à Lyon, avec environ 7 ans de
+        pratique — en autodidacte, depuis 2018. J'ai commencé côté front-end, je travaille aujourd'hui sur
+        l'ensemble de la chaîne, et je m'oriente peu à peu vers le back-end et les systèmes.
+      </p>
+    </section>
+
+    <!-- Parcours -->
+    <section class="reveal flex w-[720px] flex-col gap-7">
+      <div class="flex flex-col gap-2.5">
+        <span class="font-mono text-[13px] font-medium text-[var(--text-muted)]">01 — Parcours</span>
+        <h2 class="font-heading text-[28px] font-semibold text-[var(--text-primary)]">Comment j'en suis arrivé là</h2>
+      </div>
+      <div class="flex flex-col">
+        {
+          milestones.map((m, i) => (
+            <div class="flex gap-6 pb-7">
+              <div class="w-16 shrink-0">
+                <span class="font-mono text-[15px] font-medium text-[var(--accent)]">{m.year}</span>
+              </div>
+              <div
+                class:list={[
+                  "relative flex flex-col gap-1.5 border-l border-[var(--border)] py-0.5 pl-5",
+                  i === milestones.length - 1 ? "pb-0" : "pb-1.5",
+                ]}
+              >
+                <span class="absolute -left-[6px] top-0.5 h-[11px] w-[11px] rounded-full border-2 border-[var(--accent)] bg-[var(--bg)]" />
+                <h3 class="font-heading text-lg font-medium text-[var(--text-primary)]">{m.title}</h3>
+                <p class="font-body text-[15px] leading-[1.6] text-[var(--text-secondary)]">{m.description}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Aujourd'hui -->
+    <section class="reveal flex w-[720px] flex-col gap-6">
+      <div class="flex flex-col gap-2.5">
+        <span class="font-mono text-[13px] font-medium text-[var(--text-muted)]">02 — Aujourd'hui</span>
+        <h2 class="font-heading text-[28px] font-semibold text-[var(--text-primary)]">Ce que je fais au quotidien</h2>
+      </div>
+      <p class="font-body text-base leading-[1.65] text-[var(--text-secondary)]">
+        En alternance, je travaille au quotidien en TypeScript, React et Next.js côté front, et en Node.js avec
+        Prisma côté back. Je contribue, au sein d'une équipe, à une plateforme éducative en réalité virtuelle
+        destinée à la formation des étudiants en chirurgie dentaire.
+      </p>
+      <p class="font-body text-base leading-[1.65] text-[var(--text-secondary)]">
+        Mon travail ne se limite pas à écrire du code : relire celui des autres, garder l'existant stable dans le
+        temps et comprendre pourquoi quelque chose casse font partie du métier autant que livrer une nouvelle
+        fonctionnalité.
+      </p>
+      <div class="flex flex-col gap-3.5 pt-2">
+        <span class="font-mono text-xs font-medium tracking-[0.5px] text-[var(--text-muted)]">Stack</span>
+
+        <div class="flex flex-col gap-2.5">
+          <div class="flex items-center gap-2">
+            <span class="h-[7px] w-[7px] rounded-full bg-[var(--accent)]"></span>
+            <span class="font-mono text-xs font-medium tracking-[0.3px] text-[var(--text-secondary)]">
+              Maîtrisé — usage professionnel quotidien
+            </span>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <span class="font-mono text-xs text-[var(--text-muted)]">Front</span>
+            {
+              ["TypeScript", "React", "Next.js"].map((chip) => (
+                <span class="rounded-md bg-[var(--accent)] px-3 py-[7px] font-mono text-[13px] font-medium text-[var(--on-accent)]">
+                  {chip}
+                </span>
+              ))
+            }
+          </div>
+          <div class="flex items-center gap-2.5">
+            <span class="font-mono text-xs text-[var(--text-muted)]">Back</span>
+            {
+              ["Node.js", "Prisma"].map((chip) => (
+                <span class="rounded-md bg-[var(--accent)] px-3 py-[7px] font-mono text-[13px] font-medium text-[var(--on-accent)]">
+                  {chip}
+                </span>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-2.5 pt-1.5">
+          <div class="flex items-center gap-2">
+            <span class="h-[7px] w-[7px] rounded-full border-[1.5px] border-[var(--text-muted)] bg-[var(--bg)]"></span>
+            <span class="font-mono text-xs font-medium tracking-[0.3px] text-[var(--text-muted)]">En apprentissage actuellement</span>
+          </div>
+          <div class="flex items-center gap-2.5">
+            {
+              ["Rust", "Go"].map((chip) => (
+                <span class="flex items-center gap-2 rounded-md border border-[var(--border)] bg-[var(--bg-subtle)] px-3 py-[7px] font-mono text-[13px] text-[var(--text-muted)]">
+                  <span class="font-mono text-[11px]">○</span>
+                  {chip}
+                </span>
+              ))
+            }
+            <span class="font-mono text-xs text-[var(--text-muted)]">— Rustlings, Axum</span>
+          </div>
+          <div class="flex items-center gap-2 pt-1.5">
+            <span class="h-[7px] w-[7px] rounded-full border-[1.5px] border-[var(--text-muted)] bg-[var(--bg)]"></span>
+            <span class="font-mono text-xs font-medium tracking-[0.3px] text-[var(--text-muted)]">En apprentissage / à venir</span>
+          </div>
+          <div class="flex items-center gap-2.5">
+            {
+              ["AWS", "Azure"].map((chip) => (
+                <span class="flex items-center gap-2 rounded-md border border-[var(--border)] bg-[var(--bg-subtle)] px-3 py-[7px] font-mono text-[13px] text-[var(--text-muted)]">
+                  <span class="font-mono text-[11px]">○</span>
+                  {chip}
+                </span>
+              ))
+            }
+            <span class="font-mono text-xs text-[var(--text-muted)]">— puis Kubernetes</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Direction -->
+    <section class="reveal flex w-[720px] flex-col gap-6">
+      <div class="flex flex-col gap-2.5">
+        <span class="font-mono text-[13px] font-medium text-[var(--text-muted)]">03 — Direction</span>
+        <h2 class="font-heading text-[28px] font-semibold text-[var(--text-primary)]">Où je me dirige</h2>
+      </div>
+      <p class="font-body text-base leading-[1.65] text-[var(--text-secondary)]">
+        Je souhaite me spécialiser côté back-end et systèmes. Ce qui m'intéresse, c'est ce qui se passe sous la
+        surface : concevoir des APIs fiables, comprendre la concurrence, mieux tirer parti des bases de données et
+        savoir observer un système plutôt que de deviner. C'est une direction que je construis surtout par
+        l'apprentissage.
+      </p>
+      <div class="flex flex-col pt-2">
+        {
+          focusPoints.map((f, i) => (
+            <div
+              class:list={[
+                "flex items-start gap-5 py-4",
+                i !== focusPoints.length - 1 && "border-b border-[var(--border)]",
+              ]}
+            >
+              <div class="flex w-[220px] shrink-0 items-center gap-2.5">
+                <span class="font-mono text-[13px] font-medium text-[var(--accent)]">{f.num}</span>
+                <h3 class="font-heading text-[17px] font-medium text-[var(--text-primary)]">{f.title}</h3>
+              </div>
+              <p class="font-body text-[15px] leading-[1.55] text-[var(--text-secondary)]">{f.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Hors dev -->
+    <section class="reveal flex w-[720px] flex-col gap-6">
+      <div class="flex flex-col gap-2.5">
+        <span class="font-mono text-[13px] font-medium text-[var(--text-muted)]">04 — Hors dev</span>
+        <h2 class="font-heading text-[28px] font-semibold text-[var(--text-primary)]">En dehors de l'écran</h2>
+      </div>
+      <p class="font-body text-base leading-[1.65] text-[var(--text-secondary)]">
+        En dehors du code, j'aime bricoler de petits projets, sortir faire du vélo pour couper des écrans, et lire
+        pas mal de contenu technique — souvent celui qui explique comment les choses fonctionnent réellement.
+      </p>
+      <div class="flex items-center gap-2.5 pt-1">
+        {
+          interests.map((interest) => (
+            <span class="rounded-md bg-[var(--accent-dim)] px-3 py-[7px] font-mono text-[13px] text-[var(--accent)]">
+              {interest}
+            </span>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="reveal flex w-[720px] items-center gap-4 pt-2">
+      <Button href="/projets" variant="accent">Voir mes projets</Button>
+      <span class="font-body text-sm text-[var(--text-muted)]">ou écrivez-moi directement — je réponds vite.</span>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

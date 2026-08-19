@@ -1,0 +1,75 @@
+---
+import Icon from "./Icon.astro";
+
+interface Props {
+  icon: string;
+  badge: string;
+  title: string;
+  description: string;
+  tech: string;
+  techValue?: string;
+  contextValue?: string;
+  githubHref?: string;
+  demoHref?: string;
+  class?: string;
+}
+
+const {
+  icon,
+  badge,
+  title,
+  description,
+  tech,
+  techValue,
+  contextValue,
+  githubHref,
+  demoHref,
+  class: className = "",
+} = Astro.props;
+---
+
+<div
+  data-tech={techValue ?? tech.toLowerCase()}
+  data-context={contextValue ?? badge.toLowerCase()}
+  class:list={[
+    "project-card flex flex-col overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--bg-elevated)]",
+    "transition-[transform,box-shadow,border-color] duration-200 ease-out hover:-translate-y-1 hover:border-[var(--border-strong)] hover:shadow-lg",
+    className,
+  ]}
+>
+  <div class="flex h-[172px] w-full items-center justify-center bg-[var(--bg-subtle)]">
+    <Icon name={icon} class="h-10 w-10 text-[var(--text-muted)]" />
+  </div>
+  <div class="flex flex-col gap-3 p-5">
+    <div class="flex items-center justify-between gap-3">
+      <h3 class="font-heading text-lg font-medium text-[var(--text-primary)]">{title}</h3>
+      <span class="rounded-md bg-[var(--accent-dim)] px-2.5 py-1 font-mono text-[11px] text-[var(--accent)]">
+        {badge}
+      </span>
+    </div>
+    <p class="font-body text-sm leading-[1.5] text-[var(--text-secondary)]">{description}</p>
+    <p class="font-mono text-xs text-[var(--text-muted)]">{tech}</p>
+    <div class="flex items-center gap-5">
+      {githubHref && (
+        <a
+          href={githubHref}
+          target="_blank"
+          rel="noreferrer"
+          class="font-mono text-xs text-[var(--accent)] underline-offset-2 transition-opacity hover:underline hover:opacity-80"
+        >
+          GitHub ↗
+        </a>
+      )}
+      {demoHref && (
+        <a
+          href={demoHref}
+          target="_blank"
+          rel="noreferrer"
+          class="font-mono text-xs text-[var(--accent)] underline-offset-2 transition-opacity hover:underline hover:opacity-80"
+        >
+          Démo ↗
+        </a>
+      )}
+    </div>
+  </div>
+</div>
