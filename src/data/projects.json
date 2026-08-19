@@ -1,0 +1,222 @@
+[
+  {
+    "icon": "graduation-cap",
+    "badge": "Perso",
+    "title": "Rust Academy",
+    "description": "Plateforme web d'apprentissage du Rust. Stack complète : Next.js, TypeScript, Prisma, Docker et intégration Claude AI.",
+    "tech": "TypeScript · Next.js · Prisma",
+    "techValue": "typescript",
+    "contextValue": "perso",
+    "githubHref": "https://github.com/Quentin-Cheron/RUST_ACADEMY"
+  },
+  {
+    "icon": "newspaper",
+    "badge": "Perso",
+    "title": "Veilles",
+    "description": "Application de gestion de veille technologique. Next.js, Prisma, tests Vitest + Playwright e2e, emails transactionnels et shadcn/ui.",
+    "tech": "TypeScript · Next.js · Prisma",
+    "techValue": "typescript",
+    "contextValue": "perso",
+    "githubHref": "https://github.com/Quentin-Cheron/Veilles"
+  },
+  {
+    "icon": "book-open",
+    "badge": "Perso",
+    "title": "Rust Learning",
+    "description": "15 projets progressifs pour apprendre Rust : ownership, concurrence, traits, smart pointers et modules.",
+    "tech": "Rust",
+    "techValue": "rust",
+    "contextValue": "perso",
+    "githubHref": "https://github.com/Quentin-Cheron/rust-learning"
+  },
+  {
+    "icon": "book-open",
+    "badge": "Perso",
+    "title": "Go Learning",
+    "description": "Recueil d'exercices pour apprendre Go : variables, conditions, boucles et fonctions.",
+    "tech": "Go",
+    "techValue": "go",
+    "contextValue": "perso",
+    "githubHref": "https://github.com/Quentin-Cheron/go-learning"
+  },
+  {
+    "icon": "gamepad-2",
+    "badge": "Perso",
+    "title": "Hangman",
+    "description": "Jeu du pendu en Rust. Exercice d'apprentissage sur les bases du langage : ownership, pattern matching et gestion d'erreurs.",
+    "tech": "Rust",
+    "techValue": "rust",
+    "contextValue": "perso",
+    "githubHref": "https://github.com/Quentin-Cheron/rust-learning"
+  },
+  {
+    "icon": "thermometer",
+    "badge": "Perso",
+    "title": "Convertisseur de température",
+    "description": "Outil CLI en Rust pour convertir entre unités de température. Projet d'apprentissage sur les fondamentaux du langage.",
+    "tech": "Rust",
+    "techValue": "rust",
+    "contextValue": "perso",
+    "githubHref": "https://github.com/Quentin-Cheron/rust-learning"
+  },
+  {
+    "icon": "database",
+    "badge": "Cours",
+    "title": "ELK Stack",
+    "description": "TP sur la stack Elasticsearch, Logstash, Kibana pour l'indexation et la visualisation de données.",
+    "tech": "Python · ELK",
+    "techValue": "python",
+    "contextValue": "cours",
+    "githubHref": "https://github.com/Quentin-Cheron/ISITECH_ELK_2026"
+  },
+  {
+    "icon": "layers",
+    "badge": "Cours",
+    "title": "Design Patterns",
+    "description": "Implémentation des principaux design patterns en TypeScript : Factory, Observer, Strategy, Decorator et plus.",
+    "tech": "TypeScript · Node.js",
+    "techValue": "typescript",
+    "contextValue": "cours",
+    "githubHref": "https://github.com/Quentin-Cheron/ISITECH_PATTERN_DESIGN_2025"
+  },
+  {
+    "icon": "code-2",
+    "badge": "Cours",
+    "title": "Python Avancé — Examen",
+    "description": "Examen de Python avancé : manipulation de données, POO avancée et algorithmes.",
+    "tech": "Python",
+    "techValue": "python",
+    "contextValue": "cours",
+    "githubHref": "https://github.com/Quentin-Cheron/EXAM_PYTHON_AVANCE"
+  },
+  {
+    "icon": "code-2",
+    "badge": "Cours",
+    "title": "Python Avancé",
+    "description": "Cours et exercices de Python avancé : décorateurs, générateurs, programmation fonctionnelle et POO.",
+    "tech": "Python",
+    "techValue": "python",
+    "contextValue": "cours",
+    "githubHref": "https://github.com/Quentin-Cheron/ISITECH_PYTHON_AVANCE"
+  },
+  {
+    "icon": "git-branch",
+    "badge": "Cours",
+    "title": "Projet Scrum",
+    "description": "Projet de groupe géré en méthodologie Scrum. Développement Next.js avec sprints, backlog et retrospectives.",
+    "tech": "Next.js · TypeScript · Tailwind CSS",
+    "techValue": "typescript",
+    "contextValue": "cours",
+    "githubHref": "https://github.com/Quentin-Cheron/PROJET_SCRUM_ISITECH_2025"
+  },
+  {
+    "icon": "gamepad-2",
+    "badge": "Cours",
+    "title": "Unity TP",
+    "description": "TP de développement de jeu vidéo avec Unity et C# : physique, animations et gestion des interactions.",
+    "tech": "C# · Unity",
+    "techValue": "csharp",
+    "contextValue": "cours",
+    "githubHref": "https://github.com/Quentin-Cheron/ISITECH-2025-UNITY-TP"
+  },
+  {
+    "icon": "network",
+    "badge": "Cours",
+    "title": "Blockchain TP",
+    "description": "Introduction à la blockchain : création d'une chaîne de blocs simplifiée et exploration des concepts de décentralisation.",
+    "tech": "JavaScript · Bun",
+    "techValue": "javascript",
+    "contextValue": "cours",
+    "githubHref": "https://github.com/Quentin-Cheron/ISITECH_2025-BLOCKCHAIN_TP"
+  },
+  {
+    "icon": "database",
+    "badge": "Cours",
+    "title": "MongoDB",
+    "description": "TP MongoDB : modélisation de données NoSQL, agrégations et requêtes avancées.",
+    "tech": "Node.js · MongoDB",
+    "techValue": "javascript",
+    "contextValue": "cours",
+    "githubHref": "https://github.com/Quentin-Cheron/MONGODB_ISITECH_2025"
+  },
+  {
+    "icon": "globe",
+    "badge": "Cours",
+    "title": "Next.js TP",
+    "description": "TP d'initiation à Next.js : routing, Server Side Rendering, API routes et déploiement.",
+    "tech": "TypeScript · Next.js",
+    "techValue": "typescript",
+    "contextValue": "cours",
+    "githubHref": "https://github.com/Quentin-Cheron/isitech-2025-nextjs-tp"
+  },
+  {
+    "icon": "globe",
+    "badge": "Cours",
+    "title": "Next.js — Cours",
+    "description": "Cours complet Next.js : App Router, Server Components, authentification et gestion d'état.",
+    "tech": "TypeScript · Next.js",
+    "techValue": "typescript",
+    "contextValue": "cours",
+    "githubHref": "https://github.com/Quentin-Cheron/ISITECH-2025-NEXTJS"
+  },
+  {
+    "icon": "server",
+    "badge": "Cours",
+    "title": ".NET",
+    "description": "TP et exercices .NET : développement d'applications web avec ASP.NET MVC et C#.",
+    "tech": "C# · ASP.NET MVC",
+    "techValue": "csharp",
+    "contextValue": "cours",
+    "githubHref": "https://github.com/Quentin-Cheron/.NET-ISITECH-2024-B3"
+  },
+  {
+    "icon": "clipboard-list",
+    "badge": "Cours",
+    "title": "Gestion de projet",
+    "description": "Cours de gestion de projet : planification, suivi d'avancement et livrables en environnement agile.",
+    "tech": "Agile · Documentation",
+    "techValue": "other",
+    "contextValue": "cours",
+    "githubHref": "https://github.com/Quentin-Cheron/ISITECH-GESTION-PROJET-QC-2024"
+  },
+  {
+    "icon": "brain",
+    "badge": "Cours",
+    "title": "Prompt Engineering — Gemini",
+    "description": "TP sur le prompt engineering avec l'API Google Gemini : génération de contenu et intégration IA dans une app Next.js.",
+    "tech": "Next.js · Prisma · NextAuth · Gemini API",
+    "techValue": "typescript",
+    "contextValue": "cours",
+    "githubHref": "https://github.com/Quentin-Cheron/ISITECH_B2_PROMPT_GEMINI"
+  },
+  {
+    "icon": "cpu",
+    "badge": "Cours",
+    "title": "Infra Dev — Groupe",
+    "description": "Projet de groupe sur l'infrastructure de développement : CI/CD, conteneurisation et stratégies de déploiement.",
+    "tech": "Vue.js · TypeScript · Vite · Tailwind CSS",
+    "techValue": "typescript",
+    "contextValue": "cours",
+    "githubHref": "https://github.com/Quentin-Cheron/ISITECH-L2-infra-dev-grp-3"
+  },
+  {
+    "icon": "refresh-cw",
+    "badge": "Cours",
+    "title": "React CI",
+    "description": "Mise en place d'une pipeline CI/CD pour une application React avec tests Playwright e2e et GitHub Actions.",
+    "tech": "React · Vite · Playwright · GitHub Actions",
+    "techValue": "typescript",
+    "contextValue": "cours",
+    "githubHref": "https://github.com/Quentin-Cheron/Isitech-React-CI"
+  },
+  {
+    "icon": "coffee",
+    "badge": "Cours",
+    "title": "Java TP",
+    "description": "TP de Java : programmation orientée objet, collections, interfaces et gestion des exceptions.",
+    "tech": "Java",
+    "techValue": "java",
+    "contextValue": "cours",
+    "githubHref": "https://github.com/Quentin-Cheron/TP-3-JAVA-B2-2024"
+  }
+]

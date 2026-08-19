@@ -3,38 +3,23 @@ import Layout from "../layouts/Layout.astro";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 import ProjectCard from "../components/ProjectCard.astro";
-
-const projects = [
-  {
-    icon: "gamepad-2",
-    badge: "Perso",
-    title: "Hangman",
-    description: "Jeu du pendu en Rust. Exercice d'apprentissage sur les bases du langage : ownership, pattern matching et gestion d'erreurs.",
-    tech: "Rust",
-    techValue: "rust",
-    contextValue: "perso",
-    githubHref: "https://github.com/qcheron",
-  },
-  {
-    icon: "thermometer",
-    badge: "Perso",
-    title: "Convertisseur de température",
-    description: "Outil en ligne de commande en Rust pour convertir entre unités de température. Projet d'apprentissage sur les fondamentaux du langage.",
-    tech: "Rust",
-    techValue: "rust",
-    contextValue: "perso",
-    githubHref: "https://github.com/qcheron",
-  },
-];
+import projects from "../data/projects.json";
 
 const techFilters = [
   { label: "Tous", value: "all" },
+  { label: "TypeScript", value: "typescript" },
+  { label: "JavaScript", value: "javascript" },
+  { label: "Python", value: "python" },
   { label: "Rust", value: "rust" },
+  { label: "Go", value: "go" },
+  { label: "C#", value: "csharp" },
+  { label: "Java", value: "java" },
 ];
 
 const contextFilters = [
   { label: "Tous", value: "all" },
   { label: "Perso", value: "perso" },
+  { label: "Cours", value: "cours" },
 ];
 
 const chipBase =
@@ -47,7 +32,7 @@ const chipInactive =
 <Layout title="Projets">
   <Nav current="projets" />
 
-  <main class="flex flex-col items-center gap-20 px-16 pb-24 pt-16">
+  <main class="flex flex-1 flex-col items-center gap-20 px-16 pb-24 pt-16">
     <section class="reveal flex w-full flex-col gap-3">
       <h1 class="font-heading text-[44px] font-semibold text-[var(--text-primary)]">Projets</h1>
       <p class="font-body w-[720px] text-base leading-[1.5] text-[var(--text-secondary)]">
