@@ -7,21 +7,27 @@ import Button from "../components/Button.astro";
 const milestones = [
     {
         year: "~2018",
-        title: "Premiers pas côté front",
+        title: "Premiers pas en autodidacte",
         description:
-            "Je découvre le développement web en autodidacte : HTML, CSS et JavaScript, appris sur le tas en construisant de petites pages et en cassant beaucoup de choses.",
+            "Je découvre le développement web sur le tas : HTML, CSS et JavaScript, appris en construisant de petites pages et en cassant beaucoup de choses.",
     },
     {
         year: "2020",
-        title: "Des bases plus structurées",
+        title: "Eden School — des bases plus structurées",
         description:
-            "Je reprends les fondamentaux de façon plus posée : logique de programmation, versioning avec Git, un peu de réseau. Je cherche surtout à comprendre ce que j'écris.",
+            "J'intègre Eden School à Villeurbanne pour un Bac Pro informatique. Je reprends les fondamentaux de façon posée : logique de programmation, versioning avec Git, un peu de réseau. Je cherche surtout à comprendre ce que j'écris plutôt qu'à empiler du code.",
     },
     {
         year: "2022",
         title: "Vers le full-stack",
         description:
-            "Je ne me limite plus à l'interface. Je m'intéresse aux APIs, aux bases de données et au déploiement, et je commence à raisonner en termes d'application complète.",
+            "Je ne me limite plus à l'interface. Je m'intéresse aux APIs, aux bases de données et au déploiement, et je commence à raisonner en termes d'application complète plutôt que de simples pages.",
+    },
+    {
+        year: "2023",
+        title: "Isitech — Bac+3 RPI",
+        description:
+            "Je poursuis à Isitech avec un Bac+3 Responsable Projet Informatique. Le cadre devient plus exigeant : travail en équipe, méthode, et premiers vrais projets à plusieurs.",
     },
     {
         year: "2024",
@@ -31,9 +37,9 @@ const milestones = [
     },
     {
         year: "2025",
-        title: "Intérêt pour le back-end",
+        title: "Master ESI — intérêt pour le back-end",
         description:
-            "Je concentre progressivement mon apprentissage sur le back-end et les systèmes, et j'explore de nouveaux langages en dehors du travail.",
+            "Je poursuis à Isitech avec un Master ESI, et je concentre progressivement mon apprentissage sur le back-end et les systèmes, en explorant de nouveaux langages en dehors du travail.",
     },
 ];
 
@@ -332,10 +338,9 @@ const interests = ["Jeux-vidéos", "Cinéma", "Sport Musculation"];
             <p
                 class="font-body text-base leading-[1.65] text-[var(--text-secondary)]"
             >
-                En dehors du code, j'aime bricoler de petits projets, sortir
-                faire du vélo pour couper des écrans, et lire pas mal de contenu
-                technique — souvent celui qui explique comment les choses
-                fonctionnent réellement.
+                En dehors du code, j'aime les jeux vidéo, le cinéma, la salle de
+                musculation, et apprendre de nouvelles langues. fonctionnent
+                réellement.
             </p>
             <div class="flex items-center gap-2.5 pt-1">
                 {

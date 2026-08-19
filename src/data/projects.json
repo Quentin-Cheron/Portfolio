@@ -40,26 +40,6 @@
     "githubHref": "https://github.com/Quentin-Cheron/go-learning"
   },
   {
-    "icon": "gamepad-2",
-    "badge": "Perso",
-    "title": "Hangman",
-    "description": "Jeu du pendu en Rust. Exercice d'apprentissage sur les bases du langage : ownership, pattern matching et gestion d'erreurs.",
-    "tech": "Rust",
-    "techValue": "rust",
-    "contextValue": "perso",
-    "githubHref": "https://github.com/Quentin-Cheron/rust-learning"
-  },
-  {
-    "icon": "thermometer",
-    "badge": "Perso",
-    "title": "Convertisseur de température",
-    "description": "Outil CLI en Rust pour convertir entre unités de température. Projet d'apprentissage sur les fondamentaux du langage.",
-    "tech": "Rust",
-    "techValue": "rust",
-    "contextValue": "perso",
-    "githubHref": "https://github.com/Quentin-Cheron/rust-learning"
-  },
-  {
     "icon": "database",
     "badge": "Cours",
     "title": "ELK Stack",
